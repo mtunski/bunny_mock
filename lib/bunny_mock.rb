@@ -61,10 +61,10 @@ module BunnyMock
 
     # Declares a direct exchange or looks it up in the cache of previously
     # declared exchanges.
-    def direct(name, opts)
+    def direct(name, opts = {})
       direct = exchanges[name]
       return direct if direct
-      direct = BunnyMock::Exchange.new(self, :direct, name)
+      direct = BunnyMock::Exchange.new(self, :direct, name, opts)
       add_exchange(name, direct)
     end
 
